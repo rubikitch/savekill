@@ -1,5 +1,5 @@
 ;;;; savekill.el --- Save kill ring to disk
-;; Time-stamp: <2011-02-26 17:29:57 rubikitch>
+;; Time-stamp: <2011-02-26 20:20:45 rubikitch>
 
 ;; Copyright (C) 2011  rubikitch
 
@@ -97,6 +97,7 @@
   (save-kill-internal))
 ;; (progn (ad-disable-advice 'kill-new 'after 'savekill) (ad-update 'kill-new))
 
+(add-hook 'after-init-hook (lambda () (load save-kill-file-name)))
 (provide 'savekill)
 
 ;; How to save (DO NOT REMOVE!!)
