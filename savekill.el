@@ -1,5 +1,5 @@
 ;;;; savekill.el --- Save kill ring to disk
-;; Time-stamp: <2011-02-26 20:20:45 rubikitch>
+;; Time-stamp: <2011-02-26 20:22:11 rubikitch>
 
 ;; Copyright (C) 2011  rubikitch
 
@@ -32,14 +32,6 @@
 ;; Below are complete command list:
 ;;
 ;;
-;;; Customizable Options:
-;;
-;; Below are customizable option list:
-;;
-;;  `save-kill-file-name'
-;;    *Saved `kill-ring' filename.
-;;    default = "~/.emacs.d/kill-ring-saved.el"
-
 ;;; Customizable Options:
 ;;
 ;; Below are customizable option list:
