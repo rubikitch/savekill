@@ -1,5 +1,6 @@
-;;;; savekill.el --- Save kill ring to disk
-;; Time-stamp: <2011-03-31 21:24:14 rubikitch>
+;;; savekill.el --- Save kill ring to disk
+
+;; Time-stamp: <2013-01-31 06:47:42 rubikitch>
 
 ;; Copyright (C) 2011  rubikitch
 
