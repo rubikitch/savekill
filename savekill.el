@@ -86,6 +86,11 @@ See the command `save-kill-internal'."
   :group 'savekill
   :type 'integer)
 
+(defcustom savekill-keep-text-properties nil
+  "If no nil keep text properties on `SAVE-KILL-FILE-NAME'"
+  :group 'savekill
+  :type 'boolean)
+
 (defsubst savekill-trunc-list (l n)
   "Return from L the list of its first N elements."
   (if n
@@ -102,12 +107,14 @@ See the command `save-kill-internal'."
 (defun save-kill-internal ()
   (let ((coding-system-for-write save-kill-coding-system))
     (write-region
-    (concat "(setq kill-ring '"
-            (prin1-to-string (savekill-trunc-list
-                              (mapcar 'substring-no-properties kill-ring)
-                              savekill-max-saved-items))
-            ")\n")
-    nil save-kill-file-name nil 'silent)))
+     (concat "(setq kill-ring '"
+             (prin1-to-string (savekill-trunc-list
+                               (if savekill-keep-text-properties
+                                   kill-ring
+                                 (mapcar 'substring-no-properties kill-ring))
+                               savekill-max-saved-items))
+             ")\n")
+     nil save-kill-file-name nil 'silent)))
 
 (defadvice kill-new (after savekill activate)
   "Save kill ring to `save-kill-file-name' everytime kill ring is updated."
